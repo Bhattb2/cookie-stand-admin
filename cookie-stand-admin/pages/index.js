@@ -46,7 +46,7 @@ export default function Home() {
       </main>
 
 
-      <footer className="p-1 mt-28 bg-green-400 p-4 text-xs">
+      <footer className="p-4 mt-28 bg-green-400 text-xs">
         <p>&copy;2021</p>
 
 
