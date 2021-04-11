@@ -1,5 +1,9 @@
 import Head from 'next/head'
+
+import{ hours } from '.../data'
 import React, { useState } from 'react'
+
+
 
 export default function Home() {
 
@@ -40,7 +44,7 @@ export default function Home() {
         <input className='row-start-4 col-start-3 col-span-2 text-sm mr-4 ml-4 mb-4' name='max_cust'></input>
         <label className='row-start-3 col-start-5 col-span-2 text-sm text-center' for='avg_per'>Average Cookies Per Sale</label>
         <input className='row-start-4 col-start-5 col-span-2 text-sm mr-4 ml-4 mb-4' name='avg_per'></input>
-        <button className='row-start-3 col-start-7 col-span-2 row-span-2 bg-green-400 mr-4 ml-2 mb-3 mt-2'>Create</button>
+        <button className='row-start-3 col-start-7 col-span-2 row-span-2 bg-green-400 mr-4 ml-2 mb-3 mt-4'>Create</button>
 
       </form>
       
