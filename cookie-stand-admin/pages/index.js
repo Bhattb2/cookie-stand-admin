@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 
-// import { hours } from '../data'
+import { hours } from '../data'
 import React, {useState} from 'react'
 
 export default function Home() {
