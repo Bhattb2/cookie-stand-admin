@@ -13,8 +13,8 @@ export default function Home() {
   const[noTable, setNoTable] = useState('No Cookie Stands Aailable');
   const[on, setOn] = useState(false)
   const[tableLocation, setTableLocation] = useState()
-  const[tableTotals, setTabelTotals] = useState()
-  const[allHours, setHours] = useState()
+  const[tableTotals, setTableTotals] = useState()
+  const[allHours, setHours] = useState([])
   const[hardcodedCookieData, setHardCoded] = useState([])
   const[cookieData, setCookieData] = useState([]);
 
@@ -33,7 +33,7 @@ export default function Home() {
     setOn(true)
     setHours(hours)
     setTableLocation('location')
-    setTabelTotals('Totals')
+    setTableTotals('Totals')
     setNoTable('')
     setHardCoded(['Calexico', 48, 42, 30, 24, 42, 24, 36, 42, 42, 48, 36, 42, 24, 36, 516])
 
@@ -52,32 +52,28 @@ export default function Home() {
 
   
   return (
-    <section className="">
+    <div className="">
       <Head>
         <title>Cookie Stand</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <header className="flex-1 text-2xl text-left bg-green-500 p-4">
-        <h1>Cookie Stand Admin</h1>
-      </header>
-
+      <Header title="Cookie Stand Admin"/>
       <main className="m-8">
         <Form />
-        <Table allHours ={ allHours } cookieData={ cookieData } hardcoded={ hardcodedCookieData } />
-        <h2 className='text-center mb-4'>{noTable}</h2>
+        <Table allHours={ allHours } cookieData={ cookieData } hardcoded={ hardcodedCookieData } />
+        <h2 className="text-center mb-4">{noTable}</h2>
       </main>
       <Footer />
-        
-    </section>
+      
+    </div>
   )
 
   function Header(props){
     return(
-      <header className='flex-1 text-3xl text-left bg-green-400 p-2'>
-      <h1>{props.title}</h1>
+      <header className="flex-1 text-3xl text-left bg-green-400 p-2">
+        <h1>{props.title}</h1>
       </header>
-
     )
   }
 
@@ -98,14 +94,14 @@ export default function Home() {
     )
   }
   
-  function Table(props){
+function Table(props){
     return(
-      <table className='w-1/2 mx-auto my-4'>
+      <table className="w-1/2 mx-auto my-4 ml-9">
         <thead>
             <tr>
               < TableOn />
               {props.allHours.map(each =>(
-                <th className='border border-black-900'>{ each }</th>
+                <th className="p-1 border  border-black-900">{ each }</th>
               ))}
               < TotalOn />
             </tr>
@@ -113,15 +109,15 @@ export default function Home() {
         <tbody>
               <tr>
               {props.hardcoded.map(data =>(
-                  <td className='border border-black-900'>{data}</td>
-                  ))}
+                <td className="p-1 border border-black-900">{data}</td>
+                ))}
               </tr>
               {props.cookieData.map(data =>(
                 <tr>
-                  {console.log('data is', data.newLocation)}
-                  <td className='border border-black-900'>{data.newLocation}</td>
-                  <td className='border border-black-900'>{data.min}</td>
-                  <td className='border border-black-900'>{data.max}</td>
+                  {console.log("data is", data.newLocation)}
+                  <td className="p-1 border border-black-900">{data.newLocation}</td>
+                    <td className="p-1 border border-black-900">{data.min}</td>
+                  <td className="p-1 border border-black-900">{data.max}</td>
                 </tr>
               ))}
               
@@ -144,7 +140,7 @@ export default function Home() {
   function TotalOn(props){
     if (on) {
       return (
-          <th className='border border-black-900'>{ tabelTotals }</th>
+          <th className='border border-black-900'>{ tableTotals }</th>
       )
     } else {
       return ('')
