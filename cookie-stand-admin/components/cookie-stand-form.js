@@ -27,15 +27,15 @@ export default function CookieStandForm({ onCreate }) {
         setValues({ ...values, [name]: value });
     }
     return (
-        <form onSubmit={submitHandler}>
-            <div>
-                <label htmlFor="location">Add Location</label>
-                <input type="text" name="location" id="location" value={values.location} onChange={inputChangeHandler} placeholder="Cookie Stand Location" />
+        <form className="flex p-3 my-2 space-y-16 text-xs font-bold bg-green-200 rounded-l rounded-r ml-7 mr-7 md:inline-flex" onSubmit={submitHandler}>
+            <div className="" >
+                <label className="text-xs" htmlFor="location">Add Location</label>
+                <input className="" type="text" name="location" id="location" value={values.location} onChange={inputChangeHandler} placeholder="Cookie Stand Location" />
+                
+                <button className="w-7/12 p-2 mt-2 bg-green-500 rounded-l-sm rounded-r-sm " type="submit">Create Stand</button>
             </div>
-
-            <button type="submit">Create Stand</button>
-
-
+            
+            
             <FormInputSection>
                 <label htmlFor="min">Minimum Customers per Hour</label>
                 <input type="number" name="min" id="min" value={values.min} onChange={inputChangeHandler} />

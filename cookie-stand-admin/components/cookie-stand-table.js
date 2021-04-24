@@ -1,31 +1,32 @@
 import { hours } from '../data'
+import { TrashIcon } from '@heroicons/react/solid'
 
 export default function CookieStandTable({ stands, onDelete }) {
 
     return (
         <Table>
             <thead>
-                <tr>
+                <tr className="text-left bg-green-300 ">
 
                     <TH>Location</TH>
                     {hours.map(slot => (
                         <TH key={slot}>{slot}</TH>
                     ))}
                     <TH>Totals</TH>
-                </tr>
+                </tr >
             </thead>
-            <tbody>
+            <tbody className="bg-green-200">
                 {stands.map((stand, i) => {
 
                     return (
                         <tr key={stand.id}>
 
                             <TH>
-                                <div>
+                                <div className="flex">
 
-                                    <p>{stand.location}</p>
+                                    <p className="table-cell w-full md:inline-flex">{stand.location}</p>
 
-                                    <span onClick={() => onDelete(stand)}>X</span>
+                                    <span onClick={() => onDelete(stand)}> <TrashIcon className="w-3 h-3 text-red-500"/></span>
                                 </div>
                             </TH>
 
@@ -39,8 +40,8 @@ export default function CookieStandTable({ stands, onDelete }) {
                     )
                 })}
             </tbody>
-            <tfoot>
-                <tr>
+            <tfoot >
+                <tr className="text-sm text-left bg-green-300">
                     <TH>Totals</TH>
                     {hours.map((_, i) => {
                         const amt = stands.reduce((acc, cur) => acc + cur.cookiesEachHour[i], 0);
@@ -63,12 +64,12 @@ function Table({ children }) {
 }
 function TH({ children }) {
     return (
-        <th>{children}</th>
+        <th className="w-1/12 p-1 text-xs border border-gray-700">{children}</th>
     )
 }
 
 function TD({ children }) {
     return (
-        <td>{children}</td>
+        <td className="p-1 text-xs border border-gray-700 ">{children}</td>
     )
 }
